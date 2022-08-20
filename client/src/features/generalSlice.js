@@ -36,6 +36,7 @@ export const asyncAddDocument = createAsyncThunk(
 );
 
 const initialState = {
+  isDark: false,
   docs: [],
   loading: false,
   error: null,
@@ -44,7 +45,11 @@ const initialState = {
 const generalSlice = createSlice({
   name: "general",
   initialState,
-  reducers: {},
+  reducers: {
+    toggleDarkMode: (state) => {
+      state.isDark = !state.isDark;
+    },
+  },
   extraReducers: {
     // success
     [asyncGetDocument.fulfilled]: (state, action) => {
@@ -70,6 +75,6 @@ const generalSlice = createSlice({
   },
 });
 
-export const {} = generalSlice.actions;
+export const { toggleDarkMode } = generalSlice.actions;
 
 export default generalSlice.reducer;

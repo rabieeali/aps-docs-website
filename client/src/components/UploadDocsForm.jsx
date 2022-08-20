@@ -1,5 +1,5 @@
 import { useFormik } from "formik";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import * as Yup from "yup";
 
 import Button from "../common/Button";
@@ -30,17 +30,13 @@ const validationSchema = Yup.object({
 });
 
 const UploadDocsForm = () => {
-  // only for viewing that the data is in redux!!!!
-  const data = useSelector((state) => state.general.docs);
-  console.log(data);
-
   const dispatch = useDispatch();
 
   const onSubmit = (values, { resetForm }) => {
     const { title, description, date, file } = values;
     dispatch(asyncAddDocument({ title, description, date, file }));
     resetForm({ values: "" });
-    console.log(values);
+    // console.log(values);
   };
   const formik = useFormik({ initialValues, onSubmit, validationSchema });
 

@@ -5,12 +5,12 @@ const LogsCard = () => {
   const logs = useSelector((state) => state.general.docs);
   console.log(logs);
   return (
-    <div>
+    <>
       {(DUMMY_DATA || logs).map((log) => (
-        <div className="card lg:card-side bg-neutral my-3 shadow-2xl w-1/2 m-auto ">
+        <div className="card lg:card-side bg-neutral my-3 shadow-2xl md:w-1/2 m-auto ">
           <div className="card-body  text-white">
             <h2 className="card-title font-bold text-3xl">
-              <span className="text-purple-700">Title</span>
+              {/* <span className="text-purple-700">Title</span> */}
               {log.title}
             </h2>
             <h2 className="font-bold">
@@ -26,7 +26,7 @@ const LogsCard = () => {
           </div>
         </div>
       ))}
-    </div>
+    </>
   );
 };
 

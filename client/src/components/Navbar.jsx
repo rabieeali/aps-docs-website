@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleDarkMode } from "../features/generalSlice";
+import SelectTheme from "./SelectTheme";
 
 const Navbar = () => {
   const dispatch = useDispatch();
   const isDark = useSelector((state) => state.general.isDark);
 
   const toggleDarkModeHandler = () => {
-    console.log(1);
+
     const html = document.querySelector("html");
     isDark ? (html.dataset.theme = "night") : (html.dataset.theme = "winter");
     dispatch(toggleDarkMode());
@@ -45,9 +46,18 @@ const Navbar = () => {
               Logs
             </Link>
           </li>
+          <li>
+            <Link to="/dashboard" className="capitalize text-white">
+              dashboard
+            </Link>
+          </li>
         </ul>
       </div>
+
       <div className="navbar-end">
+        <div className="hidden md:block w-44 m-auto">
+          <SelectTheme />
+        </div>
         <div className="md:flex justify-between">
           <div
             className="dropdown"
@@ -71,7 +81,7 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex="0"
-              className="menu menu-compact dropdown-content mt-16 p-2 shadow rounded-box w-52 bg-blue-400"
+              className="menu menu-compact dropdown-content mt-16 p-2 shadow rounded-box w-52 bg-blue-900"
             >
               <li>
                 <Link to="/" className="capitalize text-white">
@@ -96,8 +106,15 @@ const Navbar = () => {
               </li>
 
               <li>
+                <Link to="/dashboard" className="capitalize text-white">
+                  dashboard
+                </Link>
+              </li>
+
+              <li>
+
                 {/* darkmode */}
-                <div className="text-white">
+                {/* <div className="text-white">
                   <label className="swap swap-rotate">
                     <input type="checkbox" />
                     <svg
@@ -117,12 +134,15 @@ const Navbar = () => {
                       <path d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z" />
                     </svg>
                   </label>
-                </div>
+                </div> */}
+              </li>
+              <li style={{lineHeight:'1rem'}} className="block">
+                <SelectTheme />
               </li>
             </ul>
           </div>
           {/* darkmode */}
-          <div className="hidden md:block">
+          {/* <div className="hidden md:block">
             <label className="swap swap-rotate">
               <input type="checkbox" />
 
@@ -144,7 +164,7 @@ const Navbar = () => {
                 <path d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z" />
               </svg>
             </label>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

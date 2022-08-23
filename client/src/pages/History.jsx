@@ -5,7 +5,7 @@ import { asyncGetDocument } from "../features/generalSlice";
 import Layout from "../layout/Layout";
 
 const History = () => {
-  const { docs, loading, error } = useSelector((state) => state.general.docs);
+  const { loading, error } = useSelector((state) => state.general.docs);
   const dispatch = useDispatch();
 
 

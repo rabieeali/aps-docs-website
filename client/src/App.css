@@ -1,0 +1,6 @@
+.hover-animation{
+    transition: all ease 0.3s;
+}
+.hover-animation:hover{
+transform: scale(1.2);
+}
